@@ -1,0 +1,74 @@
+{
+    "intents": [
+        {
+            "tag": "Vaccine_Availability",
+            "patterns": ["Where is the vaccine available?", "Where can I get vaccinated?", "Which centers offer vaccines?", "Where can I get the vaccine in my city?"],
+            "responses": [
+                "Vaccines are available at various government-approved vaccination centers and hospitals across Pakistan. You can find the nearest vaccination center through the National Immunization Management System (NIMS) portal. <br><a href=\"https://nims.nadra.gov.pk/\" target=\"_blank\">Find vaccination centers</a>"
+            ]
+        },
+        {
+            "tag": "Vaccine_Cost",
+            "patterns": ["Is the vaccine free?", "What is the cost of the vaccine?", "How much does the vaccine cost?", "Do I have to pay for the vaccine?"],
+            "responses": [
+                "The COVID-19 vaccines are provided free of charge by the government of Pakistan to all citizens."
+            ]
+        },
+        {
+            "tag": "Vaccine_Pregnancy",
+            "patterns": ["Is it safe to take the vaccine during pregnancy?", "Can pregnant women get vaccinated?", "Is the vaccine safe for pregnant women?"],
+            "responses": [
+                "Pregnant women are advised to consult with their healthcare provider before getting vaccinated. Some vaccines are recommended based on the individual's health and circumstances."
+            ]
+        },
+        {
+            "tag": "Vaccine_Breastfeeding",
+            "patterns": ["Is it safe to breastfeed after taking the vaccine?", "Can I breastfeed after vaccination?", "Is breastfeeding safe after getting the vaccine?"],
+            "responses": [
+                "It is generally considered safe to breastfeed after receiving the COVID-19 vaccine. However, it is always best to consult your doctor for personalized medical advice."
+            ]
+        },
+        {
+            "tag": "Vaccine_Allergic_Reactions",
+            "patterns": ["What if I am allergic to the vaccine?", "Can the vaccine cause allergic reactions?", "Are there any serious allergic reactions from the vaccine?"],
+            "responses": [
+                "While allergic reactions to vaccines are rare, some people may experience them. If you have a known allergy to any ingredient in the vaccine, consult your healthcare provider before getting vaccinated."
+            ]
+        },
+        {
+            "tag": "Vaccine_Children",
+            "patterns": ["Can children get the COVID-19 vaccine?", "Are vaccines available for children?", "Is the COVID-19 vaccine safe for children?"],
+            "responses": [
+                "Currently, the COVID-19 vaccine is authorized for individuals aged 18 and above in Pakistan. Trials are underway to determine vaccine safety and efficacy for children."
+            ]
+        },
+        {
+            "tag": "Vaccine_Recovery",
+            "patterns": ["How long does it take to recover after vaccination?", "What happens if I feel sick after vaccination?", "How do I recover from vaccine side effects?"],
+            "responses": [
+                "Most people recover from vaccine side effects within a few days. Rest, hydration, and over-the-counter pain relievers can help alleviate symptoms like fever, fatigue, and muscle pain. If symptoms persist or worsen, consult a healthcare professional."
+            ]
+        },
+        {
+            "tag": "Vaccine_Travel",
+            "patterns": ["Do I need to be vaccinated to travel?", "Is vaccination required for travel?", "Can I travel after getting the vaccine?"],
+            "responses": [
+                "Many countries require proof of vaccination for entry. It is advised to check the travel requirements for your destination before traveling. You may also need to follow other health protocols like COVID-19 testing."
+            ]
+        },
+        {
+            "tag": "Vaccine_Effectiveness",
+            "patterns": ["How effective is the COVID-19 vaccine?", "Does the vaccine prevent COVID-19 completely?", "How well do vaccines work against COVID-19?"],
+            "responses": [
+                "The COVID-19 vaccines are highly effective in preventing severe illness, hospitalization, and death. However, no vaccine provides 100% protection, so it is important to continue practicing COVID-19 safety measures."
+            ]
+        },
+        {
+            "tag": "Vaccine_Expiration",
+            "patterns": ["Do vaccines expire?", "How long is the COVID-19 vaccine effective?", "Is there an expiration date on vaccines?"],
+            "responses": [
+                "Yes, vaccines have an expiration date. It is important to ensure that the vaccine is used before it expires to ensure its effectiveness. Always check the expiration date on the vial before getting vaccinated."
+            ]
+        }
+    ]
+}

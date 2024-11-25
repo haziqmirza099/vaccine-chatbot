@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Information ChatBot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/624fcb6423.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-chat {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 50px auto;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbox {
+            height: 100%;
+            overflow-y: auto;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f1f1f1;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .chat-message {
+            border-radius: 15px;
+            padding: 10px;
+            max-width: 75%;
+            word-wrap: break-word;
+            margin-bottom: 10px;
+            background-color: #e0e0e0;
+        }
+
+        .userText {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .botText {
+            background-color: #ffffff;
+            border: 1px solid #e6e6e6;
+            align-self: flex-start;
+        }
+
+        .input-box {
+            display: flex;
+            margin-top: 10px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        #text {
+            flex-grow: 1;
+            border-radius: 25px;
+            padding: 10px;
+            border: none;
+            background-color: #f1f1f1;
+        }
+
+        #send {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            border: none;
+            padding: 12px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #send:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .social-icons li a {
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Animations for message appearance */
+        .chat-message {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Styling the chatbox to resemble WhatsApp's chat bubbles */
+        .chatbox::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chatbox::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        .chatbox::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-chat container mt-5">
+        <h1 class="text-center">Vaccine Information ChatBot</h1>
+        <hr style="color: black;">
+        <div id="chatbox" class="chatbox">
+            <p class="botText chat-message"><span>Hi! Ask me about Vaccines in Pakistan!</span></p>
+        </div>
+        <form>
+            <div class="input-box">
+                <input id="text" type="text" name="msg" placeholder="Ask away!" class="form-control" />
+                <button type="submit" id="send" class="btn"><i class="fa fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <!-- Add footer content here if necessary -->
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("form").on("submit", function (event) {
+                var rawText = $("#text").val();
+                var userHtml = '<div class="userText chat-message"><span>' + rawText + '</span></div>';
+                $("#text").val("");
+                $("#chatbox").append(userHtml);
+                // Scroll to the bottom of the chatbox
+                $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+
+                $.ajax({
+                    data: {
+                        msg: rawText,
+                    },
+                    type: "POST",
+                    url: "/get",
+                }).done(function (data) {
+                    var botHtml = '<div class="botText chat-message"><span>' + data + '</span></div>';
+                    $("#chatbox").append(botHtml);
+                    // Scroll to the bottom of the chatbox
+                    $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+                });
+
+                event.preventDefault();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
